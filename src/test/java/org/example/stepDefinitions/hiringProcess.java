@@ -11,10 +11,6 @@ import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 import org.example.ui.RecruitmentPage;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
-
 public class hiringProcess {
 
     @Managed(driver = "chrome")
@@ -55,25 +51,6 @@ public class hiringProcess {
                 )
         );
     }
-    /*@When("^adds a new candidate with the following details:$")
-      public void addsANewCandidateWithTheFollowingDetails(List<Map<String, String>> candidateDetails) {
-          Map<String, String> candidate = candidateDetails.get(0);
-          candidateFullName = candidate.get("Full Name") + " " + candidate.get("Middle Name") + " " + candidate.get("Last Name");
-          candidateEmail = candidate.get("Email");
-
-          actor.attemptsTo(
-                  RecruitmentProcess.complete(
-                          candidate.get("Full Name"),
-                          candidate.get("Middle Name"),
-                          candidate.get("Last Name"),
-                          candidateEmail,
-                          candidate.get("Vacancy"),
-                          "Prueba",
-                          "a",
-                          "2024-04-09"
-                  )
-          );
-      }*/
 
     @When("the user completes the hiring process with the following details:")
     public void theUserCompletesTheHiringProcessWithTheFollowingDetails(io.cucumber.datatable.DataTable dataTable) {
