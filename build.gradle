@@ -10,6 +10,7 @@ buildscript {
 }
 
 plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "${serenityCoreVersion}"
     id 'java'
     id 'idea'
 }
@@ -37,7 +38,6 @@ ext {
 dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-
     implementation "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}"
     implementation "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}"
     implementation "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}"
@@ -59,9 +59,11 @@ test {
     systemProperties System.getProperties()
 }
 
-/*serenity {
+serenity {
+    testRoot = "org.example.runners"
+    requirementsBaseDir = "src/test/resources/features"
     reports = ["single-page-html"]
-}*/
+}
 
 gradle.startParameter.continueOnFailure = true
 //test.finalizedBy(aggregate)
